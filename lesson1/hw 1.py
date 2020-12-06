@@ -1,6 +1,6 @@
-import tkinter
-import PIL
+
 # Задача 1. Поработайте с переменными.
+
 name = input('Введите ваше имя:')
 city = input('Город:')
 age = int(input('Сколько вам лет:'))
