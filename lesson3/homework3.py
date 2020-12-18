@@ -6,29 +6,34 @@ def s_calc():
         arg_1 = float(input("Укажите делимое: "))
         arg_2 = float(input("укажите делитель: "))
         result = arg_1 / arg_2
-    except ZeroDivisionError:
-        return
+    except Exception as err:
+        print("Ошибка:", err)
+        return None
     return result
 
 
 print(s_calc())
+
 
 # Задача2  Реализовать функцию, принимающую несколько параметров, описывающих данные пользователя:
 # имя, фамилия, год рождения, город проживания, email, телефон.
 # Функция должна принимать параметры как именованные аргументы.
 # Реализовать вывод данных о пользователе одной строкой.
 
-def user_info(name, surname, year, city, email, phone):
-    print(f"Здравствуйте, {name} {surname}! Теперь мы знаем, что Вы родились в {year} году, проживаете в {city}. "
-          f"Мы можем написать Вам на адрес: {email} или позвонить по номеру: {phone}")
+def user_info():
+    name = input('Ваше имя: ')
+    surname = input('Ваша фамилия:')
+    year = input('Ваш год рождения:')
+    city = input('Ваш город проживания:')
+    email = input('Укажите свой адрес эл.почты:')
+    phone = input('Ваш телефон:')
+    return name, surname, year, city, email, phone
 
 
-user_info(name=input('Ваше имя: '),
-          surname=input('Ваша фамилия:'),
-          year=input('Ваш год рождения:'),
-          city=input('Ваш город проживания:'),
-          email=input('Укажите свой адрес эл.почты:'),
-          phone=input('Ваш телефон:'))
+name, surname, year, city, email, phone = user_info()
+
+print(f"Здравствуйте, {name} {surname}! Теперь мы знаем, что Вы родились в {year} году, проживаете в {city}. "
+      f"Мы можем написать Вам на адрес: {email} или позвонить по номеру: {phone}")
 
 
 # Задача 3. Реализовать функцию my_func(), которая принимает три позиционных аргумента,
@@ -36,12 +41,13 @@ user_info(name=input('Ваше имя: '),
 
 def my_func(a, b, c):
     my_list = [a, b, c]
-    my_list.remove(min(a, b, c))
     my_sum = sum(my_list)
+    my_sum -= min(my_list)
     return my_sum
 
 
 print(my_func(34, 36, 3))
+
 
 # Задача 4. Программа принимает действительное положительное число x и целое отрицательное число y.
 # Необходимо выполнить возведение числа x в степень y. Задание необходимо реализовать в виде функции my_func(x, y).
@@ -52,7 +58,9 @@ print(my_func(34, 36, 3))
 def my_func(x, y):
     return x ** y
 
+
 print(my_func(3, -5))
+
 
 # 2-ой способ
 #
@@ -68,6 +76,7 @@ def my_func(x, y):
 
 print(my_func(3, -5))
 
+
 # Задача 5.
 
 def get_not_int_index(my_arg_list):
@@ -75,7 +84,8 @@ def get_not_int_index(my_arg_list):
     for i in range(arg_len):
         try:
             int(my_arg_list[i])
-        except ValueError:
+        except Exception as err:
+            print("Ошибка:", err)
             return i
     return arg_len
 
@@ -91,6 +101,8 @@ while True:
     print(sum_arg)
     if not_int_index != len(arg_list):
         break
+
+
 #
 # # Задача 6.
 # #
