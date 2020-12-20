@@ -96,9 +96,10 @@ from fact import fact
 
 
 def my_gen(n):
+    f_num = 1
     for el1 in range(1, n + 1):
-        yield el1
-    yield fact(n)
+        f_num *= el1
+        yield f_num
 
 
 for el in my_gen(5):
